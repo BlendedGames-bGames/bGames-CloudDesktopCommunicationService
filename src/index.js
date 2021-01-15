@@ -9,7 +9,7 @@ const port = process.env.PORT || 3032;
 app.use(express.json());
 
 //Routes
-app.use(require('./routes/CaptureData'))
+app.use(require('./routes/CloudDeskCommunication'))
 
 //Starting the server
 app.listen(port, () => {
