@@ -70,7 +70,7 @@ router.post('/spend_attributes_player', jsonParser, wrap(async(req,res) => {
     } 
     catch (error) {
         console.error(error);
-        res.status(400).json({ message: 'No responde el servicio de consumo de atributos' })
+        res.status(400).json({ message: 'No se tienen los suficientes atributos' })
 
     } 
 
