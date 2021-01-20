@@ -1,11 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-var http = require('http');
-const qs = require('querystring');
-
-var common = require('./extras');
-const fetch = require('node-fetch');
 
 const wrap = fn => (...args) => fn(...args).catch(args[2])
 const axios = require('axios').default;
