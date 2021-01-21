@@ -55,7 +55,7 @@ router.post('/spend_attributes_player', jsonParser, wrap(async(req,res) => {
     }
 
     var options = {
-        host : 'bgames-spendatt.herokuapp.com',
+        host : '164.90.156.141:3008',
         path: ('/spend_attributes_apis')       
     };
     var url = "https://"+options.host + options.path;
