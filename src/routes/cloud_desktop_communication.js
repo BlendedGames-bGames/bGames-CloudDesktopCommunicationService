@@ -58,7 +58,7 @@ cloud_desktop_communication.post('/spend_attributes_player', jsonParser, wrap(as
         host : '164.90.156.141:3008',
         path: ('/spend_attributes_apis')       
     };
-    var url = "https://"+options.host + options.path;
+    var url = "http://"+options.host + options.path;
     console.log("URL "+url);
     // construct the URL to post to a publication
     const MEDIUM_POST_URL = url;
