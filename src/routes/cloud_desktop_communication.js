@@ -1,5 +1,6 @@
 const express = require('express');
-const router = express.Router();
+const cloud_desktop_communication = express.Router();
+import { testEnvironmentVariable } from '../settings';
 
 
 const wrap = fn => (...args) => fn(...args).catch(args[2])
@@ -10,9 +11,8 @@ var bodyParser =require('body-parser');
 var jsonParser = bodyParser.json()
 
 
-router.get("/", (req,res) =>{
-    var variable = req.body
-    res.status(200).json(variable)
+cloud_desktop_communication.get("/", (req,res) =>{
+    res.status(200).json({ message: testEnvironmentVariable})
 
 });
 
@@ -40,7 +40,7 @@ Input:
 Output: Void (stores the data in the db)
 Description: Calls the b-Games-ApirestPostAtt service 
 */
-router.post('/spend_attributes_player', jsonParser, wrap(async(req,res) => { 
+cloud_desktop_communication.post('/spend_attributes_player', jsonParser, wrap(async(req,res) => { 
     var id_player = req.body.id_player
     var id_videogame = req.body.id_videogame
     // [2,20,4,0,0]
@@ -55,10 +55,10 @@ router.post('/spend_attributes_player', jsonParser, wrap(async(req,res) => {
     }
 
     var options = {
-        host : 'bgames-spendatt.herokuapp.com',
+        host : '164.90.156.141:3008',
         path: ('/spend_attributes_apis')       
     };
-    var url = "https://"+options.host + options.path;
+    var url = "http://"+options.host + options.path;
     console.log("URL "+url);
     // construct the URL to post to a publication
     const MEDIUM_POST_URL = url;
@@ -78,5 +78,5 @@ router.post('/spend_attributes_player', jsonParser, wrap(async(req,res) => {
 }))
 
 
-module.exports = router;
+export default cloud_desktop_communication;
 
