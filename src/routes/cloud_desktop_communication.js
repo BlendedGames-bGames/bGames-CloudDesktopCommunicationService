@@ -1,7 +1,7 @@
 const express = require('express');
 const cloud_desktop_communication = express.Router();
 import { testEnvironmentVariable } from '../settings';
-const spendHost = "bgames-StandardAttributesService:3008"
+const spendHost = "bgames-SpendAttributesService:3008"
 
 const wrap = fn => (...args) => fn(...args).catch(args[2])
 const axios = require('axios').default;
@@ -34,8 +34,6 @@ cloud_desktop_communication.post('/spend_attributes_player', jsonParser, wrap(as
     var url = "http://"+spendHost + path;
     const MEDIUM_POST_URL = url;
     console.log("URL "+url);
-    // construct the URL to post to a publication
-    const MEDIUM_POST_URL = url;
     try {
        
         const response = await axios.post(MEDIUM_POST_URL, spend_attribute_data);
